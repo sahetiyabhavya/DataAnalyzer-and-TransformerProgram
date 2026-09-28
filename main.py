@@ -31,26 +31,28 @@ def input_Data():
         print("2D Array Are Store!")
 
         
-def Summary(data):
-    
+def Summary():
     """Summary Of Data (1D and 2D)"""
     
+    print("1. 1D Arrey ")
+    print("2. 2D Arrey ")
     
-    new_data = []
+    num = input("Enter The Number (1 Or 2 )")
+    
+    if num == "1" :
+        print("\nData Summary")
+        print(f"- Total Element :- {len(data)}")
+        print(f"- Minimum Value :- {min(data)}")
+        print(f"- Maximum Value :- {max(data)}")
+        print(f"- Sum Of All Element :- {sum(data)}")
+        print(f"- Average Value :- {sum(data) / len(data)}")
 
-    for row in data:
-
-        if type(row) == list:
-            new_data.extend(row)
-        else:
-            new_data.append(row)
-
-    print("\nData Summary")
-    print(f"- Total Element :- {len(new_data)}")
-    print(f"- Minimum Value :- {min(new_data)}")
-    print(f"- Maximum Value :- {max(new_data)}")
-    print(f"- Sum Of All Element :- {sum(new_data)}")
-    print(f"- Average Value :- {sum(new_data) / len(new_data)}")
+    elif num == "2" :
+        print(f"- Total Element :- {len(data)}")
+        print(f"- Minimum data :- {min(data)}")
+        print(f"- Maximum data :- {max(data)}")
+        print(f"- Sum Of All Element :- {sum(data)}")
+        print(f"- Average data :- {sum(data) / len(data)}")
 
 
 def fact(n):
@@ -61,18 +63,19 @@ def fact(n):
     
  
 def Factorial():
-    """Calculate the factorial of a number using recursion."""
+    """Calculate the factorial of an number using recursion."""
     num = int(input("Enter a Number To Calculate Factorial :  "))
-    print(f"Factorial of {num} is {fact(num)}")
+    print(f"Factorial {num} is:- {fact(num)}")
     return num
 
 def threshold(data):
-    """Filter data based on a threshold value."""
-    
+    """Filter Data based on Threshold Value."""
+
     data_input = int(input("Enter A Threshold Value To Filter Out Data About This Value: \n "))
     print(f"Filtered Data (Values >= {data_input})")
     data_input = list(filter(lambda x : x > data_input , data ))
     print(data_input)
+
 
 def sort(data):
     """Sort data in ascending or descending order."""
@@ -89,20 +92,21 @@ def sort(data):
         descending = sorted(data, reverse=True)
         print(descending)        
 
+# varilabe stored 
 def data_statistics(data):
-    """Calculate and return statistics of the data."""
+    """Calculate and Return statistics of data."""
     Minimum = min(data)
     maximum = max(data)
     total = sum(data)
     average = total/len(data)
     return Minimum,maximum,total,average
 
+# called
 def statistics():
-    """Display statistics of the data."""
+    """Display statstics the data"""
     if len(data) == 0:
         print("No Data Store!")
         return 
-    
     Minimum,maximum,total,average = data_statistics(data)
     print(f"-Minimun Value: {Minimum}")
     print(f"- Maximun Value: {maximum}")
@@ -121,21 +125,32 @@ while True:
     print("6. Display Dataset Statistics (Return Multiple Value) ")
     print("7. Exit ")
     
-    
     choice = int(input("Please Enter Your Choice: "))
     
     if choice == 1 :
+        print(input_Data.__doc__)
         input_Data()
+
     elif choice == 2 :
+        print(Summary.__doc__)
         Summary(data)
+
     elif choice == 3 :
+        print(Factorial.__doc__)
         Factorial()
+
     elif choice == 4:
+        print(threshold.__doc__)
         threshold(data)
+
     elif choice == 5 :
+        print(sort.__doc__)
         sort(data)
+
     elif choice == 6:
+        print(statistics.__doc__)
         statistics()
+
     elif choice == 7 :
         print("Thank You !!")
         break
