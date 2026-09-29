@@ -133,7 +133,7 @@ while True:
 
     elif choice == 2 :
         print(Summary.__doc__)
-        Summary(data)
+        Summary()
 
     elif choice == 3 :
         print(Factorial.__doc__)
